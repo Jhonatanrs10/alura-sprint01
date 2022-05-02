@@ -4,19 +4,47 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>(Des)Criptografia</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<thead>
-		
-	</thead>
 	<main>
-		<input type="text" placeholder="Digite aqui:">
-		<input type="submit" value="Criptografar">
-		<input type="submit" value="Descriptografar">
-		<textarea></textarea>
+		<div class="center">
+
+			<header>
+				<img class="logo" src="img/logo.svg" width="31" height="48">
+			</header>
+			
+			
+			<input type="text" placeholder="Digite seu texto" class="campo-texto">
+			<p class="aviso" style="user-select: none;"><img class="icon-aviso" src="img/icon-esclamacao.svg">Apenas letras minúsculas e sem acento.</p>
+			
+			<div class="botoes">
+
+				<input type="submit" value="Criptografar" class="criptografar">
+				<input type="submit" value="Descriptografar" class="descriptografar">
+
+			</div>
+
+			<div>
+
+				<textarea id="myDIV" class="campo-texto-resultado"></textarea>
+				<img id="nd" class="campo-texto-resultado-img" src="img/nenhuma-msg-encontrada.svg">
+				
+
+			</div>
+
+			
+		</div>
+		
 	</main>
 	<footer>
 		<p class="copyright" >&copy; Copyright (Des)Criptografia by jhonatanrs10 - 2022</p>
 	</footer>
 </body>
+<script>
+	function myFunction() {
+	  document.getElementById("myDIV").style.display = "none";
+	}
+</script>
 </html>
