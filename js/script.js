@@ -1,9 +1,10 @@
 // Elementos HTML
 
 var campoTexto = document.querySelector(".campo-texto");
-var botaoCriptografar = document.getElementById("criptografar")
-var botaoDesCriptografar = document.getElementById("descriptografar")
+var botaoCriptografar = document.getElementById("criptografar");
+var botaoDesCriptografar = document.getElementById("descriptografar");
 var campoResposta = document.querySelector(".campo-texto-resultado");
+var botaoCopiar = document.getElementById("copiar");
 
 // Regra Encriptação
 
@@ -56,8 +57,25 @@ function btnDesCriptografar() {
 
 }
 
+function copyToClipBoard() {
+
+
+    campoResposta.select();
+    document.execCommand('copy');
+    campoResposta.value = "";
+
+    alert("Copied!");
+
+    campoTexto.innerHTML.select();
+    document.execCommand('paste');
+}
+
+
 // Clicks
 
 botaoCriptografar.addEventListener("click", btnCriptografar);
 
 botaoDesCriptografar.addEventListener("click", btnDesCriptografar);
+
+botaoCopiar.addEventListener("click", copyToClipBoard);
+
