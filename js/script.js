@@ -18,6 +18,14 @@ var formula = [
 
 //Funções
 
+function campoLimpo() {
+    if (campoResposta.value == ""){
+        campoResposta.style.background = "url('../sprint01/img/nenhuma-msg-encontrada.svg') center center no-repeat";
+    } else{
+        campoResposta.style.background = "none";
+    }
+}
+
 function btnCriptografar() {
 
     var textoDigitado = campoTexto.value.split("");
@@ -40,37 +48,41 @@ function btnCriptografar() {
 
     campoResposta.value = textoDigitado.join("");
     campoTexto.value = "";
+    campoLimpo();
 
 }
 
 function btnDesCriptografar() {
 
     var textoDigitado = campoTexto.value;
+    var textoModificado = campoTexto.value;
 
-    textoDigitado = textoDigitado.replace(/enter/g, "e");
-    textoDigitado = textoDigitado.replace(/imes/g, "i");
-    textoDigitado = textoDigitado.replace(/ai/g, "a");
-    textoDigitado = textoDigitado.replace(/ober/g, "o");
-    textoDigitado = textoDigitado.replace(/ufat/g, "u");
+    textoModificado = textoModificado.replace(/enter/g, "e");
+    textoModificado = textoModificado.replace(/imes/g, "i");
+    textoModificado = textoModificado.replace(/ai/g, "a");
+    textoModificado = textoModificado.replace(/ober/g, "o");
+    textoModificado = textoModificado.replace(/ufat/g, "u");
 
-    campoResposta.value = textoDigitado;
+    if (textoModificado == textoDigitado){
+        alert("Essa mensagem não foi criptografada.");
+    } else{
+        campoResposta.value = textoModificado;
+        campoTexto.value = "";
+    }
+    
+    campoLimpo();
 
 }
 
 function copyToClipBoard() {
-
-
     campoResposta.select();
     document.execCommand('copy');
+    //campoTexto.value = campoResposta.value
     campoResposta.value = "";
-
-    alert("Copied!");
-
-    campoTexto.innerHTML.select();
-    document.execCommand('paste');
+    campoLimpo();
 }
 
-
+campoLimpo();
 // Clicks
 
 botaoCriptografar.addEventListener("click", btnCriptografar);
